@@ -1,0 +1,93 @@
+<!--Got some help for header from https://www.w3schools.com/howto/howto_css_login_form.asp-->
+<!--Used ChatGPT for error message-->>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GradeTracker Login Page</title>
+  <link rel="stylesheet" href="Login.css">
+</head>
+
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <div class="tabs">
+      <button class="tab-button active" onclick="showTab(event, 'student')">Student</button>
+      <button class="tab-button" onclick="showTab(event, 'teacher')">Teacher</button>
+      <button class="tab-button" onclick="showTab(event, 'admin')">Admin</button>
+    </div>
+
+    <div class="tab-content" id="student">
+      <form onsubmit="return validateLogin(event, 'student')">
+        <input type="text" id="student-username" placeholder="Student Email/Username" required>
+        <input type="password" id="student-password" placeholder="Student Password" required>
+        <p class="error-message" id="student-error"></p>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <div class="tab-content" id="teacher" style="display: none;">
+      <form onsubmit="return validateLogin(event, 'teacher')">
+        <input type="text" id="teacher-username" placeholder="Teacher Email/Username" required>
+        <input type="password" id="teacher-password" placeholder="Teacher Password" required>
+        <p class="error-message" id="teacher-error"></p>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <div class="tab-content" id="admin" style="display: none;">
+      <form onsubmit="return validateLogin(event, 'admin')">
+        <input type="text" id="admin-username" placeholder="Admin Email/Username" required>
+        <input type="password" id="admin-password" placeholder="Admin Password" required>
+        <p class="error-message" id="admin-error"></p>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function validateLogin(event, role) {
+      event.preventDefault();
+
+      // Sample credentials (replace with database validation in real applications)
+      const credentials = {
+        student: { username: "student123", password: "password1" },
+        teacher: { username: "teacher456", password: "password2" },
+        admin: { username: "admin789", password: "password3" }
+      };
+
+      let usernameInput = document.getElementById('${role}-username').value;
+      let passwordInput = document.getElementById('${role}-password').value;
+      let errorMessage = document.getElementById('${role}-error');
+
+      if (usernameInput === credentials[role].username && passwordInput === credentials[role].password) {
+        alert("Login successful!");
+        errorMessage.textContent = "";
+        return true;
+      } else {
+        errorMessage.textContent = "Invalid username or password. Please try again.";
+        errorMessage.style.color = "red";
+        errorMessage.style.display = "block";
+        return false;
+      }
+    }
+
+    function showTab(event, tabName) {
+      let i, tabContent, tabButtons;
+      tabContent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+      }
+      tabButtons = document.getElementsByClassName("tab-button");
+      for (i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].classList.remove("active");
+      }
+      document.getElementById(tabName).style.display = "block";
+      event.currentTarget.classList.add("active");
+    }
+  </script>
+</body>
+
+</html>
