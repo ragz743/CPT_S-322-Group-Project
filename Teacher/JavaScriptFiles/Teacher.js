@@ -5,7 +5,7 @@
 const AnnoucmentDiv = document.getElementById('Annoucments');
 
 
-AnnoucmentDiv.addEventListener('click',function(){
+AnnoucmentDiv.addEventListener('click', function () {
     window.location.href = 'SideBarHtml/TeAnncucments.html'
 
 })
@@ -13,7 +13,7 @@ AnnoucmentDiv.addEventListener('click',function(){
 const AssignmentDiv = document.getElementById('Assignments');
 
 
-AssignmentDiv.addEventListener('click',function(){
+AssignmentDiv.addEventListener('click', function () {
     window.location.href = 'SideBarHtml/TeAssignments.html'
 
 })
@@ -21,7 +21,7 @@ AssignmentDiv.addEventListener('click',function(){
 const DiscussionDiv = document.getElementById('Discussions');
 
 
-DiscussionDiv.addEventListener('click',function(){
+DiscussionDiv.addEventListener('click', function () {
     window.location.href = 'SideBarHtml/TeDiscussions.html'
 
 })
@@ -29,7 +29,7 @@ DiscussionDiv.addEventListener('click',function(){
 const FilesDiv = document.getElementById('Files');
 
 
-FilesDiv.addEventListener('click',function(){
+FilesDiv.addEventListener('click', function () {
     window.location.href = 'SideBarHtml/TeFiles.html'
 
 })
@@ -37,14 +37,14 @@ FilesDiv.addEventListener('click',function(){
 const GradesDiv = document.getElementById('Grades');
 
 
-GradesDiv.addEventListener('click',function(){
+GradesDiv.addEventListener('click', function () {
     window.location.href = 'SideBarHtml/TeGrades.html'
 
 })
 
 const MessagesDiv = document.getElementById('Messages');
 
-MessagesDiv.addEventListener('click',function(){
+MessagesDiv.addEventListener('click', function () {
     window.location.href = 'SideBarHtml/TeMessages.html'
 
 })
@@ -52,7 +52,7 @@ MessagesDiv.addEventListener('click',function(){
 const SyllbusDiv = document.getElementById('Syllbus');
 
 
-SyllbusDiv.addEventListener('click',function(){
+SyllbusDiv.addEventListener('click', function () {
     window.location.href = 'SideBarHtml/TeSyllbus.html'
 
 })
@@ -60,7 +60,7 @@ SyllbusDiv.addEventListener('click',function(){
 const modulesDiv = document.getElementById('Modules');
 
 
-modulesDiv.addEventListener('click',function(){
+modulesDiv.addEventListener('click', function () {
     window.location.href = 'SideBarHtml/Temodules.html'
 
 })
