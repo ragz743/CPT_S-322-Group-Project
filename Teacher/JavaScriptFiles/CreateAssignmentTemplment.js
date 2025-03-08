@@ -8,12 +8,11 @@ const detailsDiv = document.getElementById('assignmentDetails');
 
 if (assignment) {
     detailsDiv.innerHTML = `
-    <h1>${assignment.name}</h1>
-    <p>${assignment.details}</p>
+    <h1>Assignment Name : ${assignment.name}</h1>
+    <p>Assignment Details ${assignment.details}</p>
     <p>Due Date: ${assignment.dueDate}</p>
     <p>Points: ${assignment.points}</p>
-    <button>Edit the Assignment</button>
+    <button id='EditButton'>Edit the Assignment</button>
+    <button id='DeleteButton'>Delete The Assignment?</button>
     `;
-} else {
-    detailsDiv.innerHTML = "<p>Assignment not found.</p>";
 }

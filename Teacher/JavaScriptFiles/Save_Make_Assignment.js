@@ -6,10 +6,10 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        const createButton = document.getElementById('CreateAssignmentButton');
-        if (!createButton) return;
+        const AddAssignment = document.getElementById('CreateAssignmentButton');
+        if (!AddAssignment) return;
 
-        createButton.addEventListener('click', function () {
+        AddAssignment.addEventListener('click', function () {
 
 
             const assignmentName = window.prompt("Enter the Assignment's Name");
