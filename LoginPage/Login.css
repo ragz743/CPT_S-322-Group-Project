@@ -1,0 +1,86 @@
+/* Got some help from https://github.com/ragz743/CrimsonCode2024/blob/main/static/main.css 
+/* Used ChatGPT for error message */
+/* Global styles */
+body {
+  font-family: "Gill Sans", sans-serif;
+  display: flex;
+  margin: 0;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: -webkit-linear-gradient(to right, #41668c, #c5291b);
+  background: linear-gradient(to right, #41668c, #c5291b);
+  color: #000000;
+}
+
+.container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  background: #ddd;
+  transition: 0.3;
+}
+
+.tab-button.active {
+  background: #3498db;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content from {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-content input {
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 250px;
+}
+
+button {
+  padding: 10px;
+  background: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  height: 20px;
+  margin-top: 5px;
+}
