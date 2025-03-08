@@ -65,6 +65,7 @@
       if (usernameInput === credentials[role].username && passwordInput === credentials[role].password) {
         alert("Login successful!");
         errorMessage.textContent = "";
+        window.location.href = credentials[role].redirect; // Redirect to respective page
         return true;
       } else {
         errorMessage.textContent = "Invalid username or password. Please try again.";
