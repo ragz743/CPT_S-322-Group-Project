@@ -26,4 +26,4 @@ function renderAssignments() {
 window.renderAssignments = renderAssignments;
 
 //runs render assingmenets when the page is loaded
-document.addEventListener('load', renderAssignments);
+document.addEventListener('DOMContentLoaded', renderAssignments);

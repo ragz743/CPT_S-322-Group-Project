@@ -6,22 +6,23 @@ function saveAssignments() {
     localStorage.setItem('assignments', JSON.stringify(assignments));
 }
 
-
-document.addEventListener('load', function() {
+//listens for the page to load 
+document.addEventListener('DOMContentLoaded', function() {
     const AddAssignment = document.getElementById('CreateAssignmentButton');
     if (!AddAssignment) return;
     
+    //event listner if the addassignmnet button is called 
     AddAssignment.addEventListener('click', function () {
-        // Prompt the user for assignment details
+        //Gets the users inputs 
         const assignmentName = window.prompt("Enter the Assignment's Name");
         const assignmentDetails = window.prompt("Enter the Assignment Details");
         const dueDate = window.prompt("Enter the Due Date");
         const points = window.prompt("Enter the amount of points this assignment is worth?");
         
-        // Generate a simple id based on the current number of assignments
+       //genrates the id for fueture access 
         let id = assignments.length + 1;
         
-        // Create the assignment object
+        //creates the assignment object to use for future refrences 
         let assignment = {
             id: id,
             name: assignmentName,
@@ -30,11 +31,11 @@ document.addEventListener('load', function() {
             points: points
         };
 
-        // Add the new assignment to the assignments array and save it
+        //pushes the assinment into the array and saves it to local storage
         assignments.push(assignment);
         saveAssignments();
 
-        // If there's a function to render assignments, call it
+        //if we do something to the assignments it reoloads it so it shows up
         if (typeof window.renderAssignments === 'function') {
             window.renderAssignments();
         }
