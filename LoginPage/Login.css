@@ -1,5 +1,6 @@
 /* Got some help from https://github.com/ragz743/CrimsonCode2024/blob/main/static/main.css 
 /* Used ChatGPT for error message */
+
 /* Global styles */
 body {
   font-family: "Gill Sans", sans-serif;
@@ -14,6 +15,7 @@ body {
   color: #000000;
 }
 
+/* Container holds the tabs for Student, Teacher, and Admin */
 .container {
   background: white;
   padding: 20px;
@@ -23,16 +25,19 @@ body {
   text-align: center;
 }
 
+/* The gap between the tabs and the "Login" text */
 h2 {
   margin-bottom: 20px;
 }
 
+/* The gap between the tabs and the container */
 .tabs {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
+/* Unactive tab button */
 .tab-button {
   flex: 1;
   padding: 10px;
@@ -42,6 +47,7 @@ h2 {
   transition: 0.3;
 }
 
+/* Active tab button */
 .tab-button.active {
   background: #3498db;
   color: white;
@@ -64,6 +70,7 @@ h2 {
   width: 250px;
 }
 
+/* Button */
 button {
   padding: 10px;
   background: #3498db;
@@ -74,10 +81,12 @@ button {
   margin-top: 10px;
 }
 
+/* Button when you hover over it */
 button:hover {
   background: #2980b9;
 }
 
+/* Error message */
 .error-message {
   color: red;
   font-size: 14px;
