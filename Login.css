@@ -93,3 +93,7 @@ button:hover {
   height: 20px;
   margin-top: 5px;
 }
+
+.tab-content:first-child {
+  display: block;
+}

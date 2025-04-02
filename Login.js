@@ -1,40 +1,114 @@
-function validateLogin(event, role) {
-  event.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  setupUsers();
+  setupEventListeners();
+});
 
-  // Sample credentials (replace with database validation in real applications)
-  const credentials = {
-    student: { username: "student123", password: "password1" },
-    teacher: { username: "teacher456", password: "password2" },
-    admin: { username: "admin789", password: "password3" }
-  };
-
-  let usernameInput = document.getElementById('${role}-username-input').value;
-  let passwordInput = document.getElementById('${role}-password-input').value;
-  let errorMessage = document.getElementById('${role}-error');
-
-  if (usernameInput === credentials[role].username && passwordInput === credentials[role].password) {
-    alert("Login successful!");
-    errorMessage.textContent = "";
-    window.location.href = credentials[role].redirect; // Redirect to respective page
-    return true;
-  } else {
-    errorMessage.textContent = "Invalid username or password. Please try again.";
-    errorMessage.style.color = "red";
-    errorMessage.style.display = "block";
-    return false;
+// Stores users in localStorage
+function setupUsers() {
+  if (!localStorage.getItem("users")) {
+    let users = {
+      student: [
+        { username: "student123", password: "password1" }
+      ],
+      teacher: [
+        { username: "teacher456", password: "password2" }
+      ],
+      admin: [
+        { username: "admin789", password: "password3" }
+      ]
+    };
+    localStorage.setItem("users", JSON.stringify(users)); // Save users to local storage
   }
 }
 
+// Creates event listeners when the button is submitted
+// Used Chat GPT for this function
+function setupEventListeners() {
+  document.getElementById("student-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    loginUser("student");
+  });
+
+  document.getElementById("teacher-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    loginUser("teacher");
+  });
+
+  document.getElementById("admin-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    loginUser("admin");
+  });
+}
+
+// Logs in the user
+// Used Chat GPT for this function
+function loginUser(userType) {
+
+  let usernameInput = document.getElementById(`${userType}-username-input`);
+  let passwordInput = document.getElementById(`${userType}-password-input`);
+  let errorMessage = document.getElementById(`${userType}-error`);
+
+  // Get user data from localStorage and parse it
+  // let users = JSON.parse(localStorage.getItem("users"))[userType];
+  let storedUsers = localStorage.getItem("users");
+
+  if (!storedUsers) {
+    console.error("No user data found in localStorage.");
+    errorMessage.textContent = "Error: No user data available.";
+    errorMessage.style.color = "red";
+    errorMessage.style.display = "block";
+    return;
+  }
+
+  let users = JSON.parse(storedUsers);
+
+  console.log("Stored Users: ", users);
+  console.log("Checking for userType: ", userType);
+  console.log("Users for this type: ", users[userType]);
+
+  // Ensure userType exists in stored data
+  if (!users[userType]) {
+    console.error(`No users found for type: ${userType}`);
+    errorMessage.textContent = `Error: No ${userType} accounts found.`;
+    errorMessage.style.color = "red";
+    errorMessage.style.display = "block";
+    return;
+  }
+
+  let userExits = users[userType].some(user => user.username === usernameInput.value && user.password === passwordInput.value);
+
+  if (userExits) {
+    errorMessage.style.display = "none"; // Hide error message
+    let upperUserType = capitalizeFirstLetter(userType);
+    alert(`Login successful! Redirecting to ${upperUserType} dashboard.`);
+    window.location.href = `${upperUserType}.html`; // Redirect to dashboard based on user type
+  } else {
+    errorMessage.textContent = "Invalid username or password. Please try again.";
+    errorMessage.style.color = "red";
+    errorMessage.style.display = "block"; // Show error message
+  }
+}
+
+// Switch tabs  
+// Used Chat GPT for this function
 function showTab(event, tabName) {
   let i, tabContent, tabButtons;
+
   tabContent = document.getElementsByClassName("tab-content");
   for (i = 0; i < tabContent.length; i++) {
     tabContent[i].style.display = "none";
   }
+
   tabButtons = document.getElementsByClassName("tab-button");
   for (i = 0; i < tabButtons.length; i++) {
     tabButtons[i].classList.remove("active");
   }
+
   document.getElementById(tabName).style.display = "block";
   event.currentTarget.classList.add("active");
+}
+
+// Converts the first letter of a string to uppercase
+function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
