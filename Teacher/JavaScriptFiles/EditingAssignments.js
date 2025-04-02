@@ -7,7 +7,7 @@ const EditButton = document.getElementById("EditButton")
 
  EditButton.addEventListener('click',function(){
 
-    let index = -1;
+    let index;
     for (let i = 0; i < assignments.length; i++) {
         if (assignments[i].id === assignment.id) {
             index = i;
