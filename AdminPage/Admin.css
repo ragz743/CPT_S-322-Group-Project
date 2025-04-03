@@ -1,5 +1,4 @@
-/* Got some help from https://github.com/ragz743/CrimsonCode2024/blob/main/static/main.css 
-/* Used ChatGPT for error message */
+/* Copied from Login.css */
 
 /* Global styles */
 body {
@@ -21,8 +20,11 @@ body {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
 }
 
 /* The gap between the tabs and the "Login" text */
@@ -96,4 +98,8 @@ button:hover {
 
 .tab-content:first-child {
   display: block;
+}
+
+button:hover {
+  background: darkblue;
 }

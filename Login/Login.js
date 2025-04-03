@@ -8,13 +8,13 @@ function setupUsers() {
   if (!localStorage.getItem("users")) {
     let users = {
       student: [
-        { username: "student123", password: "password1" }
+        { username: "student123", password: "password1", email: "dummystudent@gmail.com" } // Dummy Student account
       ],
       teacher: [
-        { username: "teacher456", password: "password2" }
+        { username: "teacher456", password: "password2", email: "dummyteacher@gmail.com" } // Dummy Teacher account
       ],
       admin: [
-        { username: "admin789", password: "password3" }
+        { username: "admin789", password: "password3", email: "dummyadmin@gmail.com" } // Dummy Admin account
       ]
     };
     localStorage.setItem("users", JSON.stringify(users)); // Save users to local storage
@@ -81,7 +81,14 @@ function loginUser(userType) {
     errorMessage.style.display = "none"; // Hide error message
     let upperUserType = capitalizeFirstLetter(userType);
     alert(`Login successful! Redirecting to ${upperUserType} dashboard.`);
-    window.location.href = `${upperUserType}.html`; // Redirect to dashboard based on user type
+    if (upperUserType === "Student") {
+      window.location.href = `../Student/Student.html`
+    } else if (upperUserType === "Teacher") {
+      window.location.href = `../Teacher/SideBarHtml/AssignmentTemplment.html`
+    } else if (upperUserType === "Admin") {
+      window.location.href = `../AdminPage/Admin.html`
+    }
+    // window.location.href = `${upperUserType}.html`; // Redirect to dashboard based on user type
   } else {
     errorMessage.textContent = "Invalid username or password. Please try again.";
     errorMessage.style.color = "red";

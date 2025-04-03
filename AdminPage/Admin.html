@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Page</title>
+  <link rel="stylesheet" href="Admin.css">
+  <script type="text/javascript" src="Admin.js" defer></script>
+</head>
+
+<!--Got helpt from ChatGPT to make the body of the Admin Page-->
+
+<body>
+  <h1>Admin Dashboard</h1>
+
+  <div class="tabs">
+    <button class="tab-button active" onclick="showTab(event, 'manage-users')">Manage Users</button>
+    <button class="tab-button" onclick="showTab(event, 'view-users')">View Users</button>
+    <button class="tab-button" onclick="showTab(event, 'modify-users')">Modify Users</button>
+    <button class="tab-button" onclick="showTab(event, 'manage-admins')">Manage Admins</button>
+  </div>
+
+  <!--Add/Remove Users-->
+  <div class="tab-content active" id="manage-users" style="display: block;">
+    <h2>Create User</h2>
+    <label>Role:</label>
+    <select id="user-role">
+      <option value="student">Student</option>
+      <option value="teacher">Teacher</option>
+    </select>
+    <input required type="text" name="new-username" id="new-username" placeholder="Enter Username" required>
+    <input required type="password" name="new-password" id="new-password" placeholder="Enter Password" required>
+    <input required type="email" name="new-email" id="new-email" placeholder="Enter Email" required>
+    <p class="error-message" id="new-error" style="display:none; color:red;">Username and/or password is taken!</p>
+    <button onclick="createUser()">Create User</button>
+
+    <h2>Deactivate User</h2>
+    <input required type="text" name="remove-username" id="remove-username" placeholder="Enter Username to Remove"
+      required>
+    <p class="error-message" id="remove-error" style="display:none; color:red;">Username does not exist or is invalid!
+    </p>
+    <button onclick="removeUser()">Deactivate User</button>
+  </div>
+
+  <!--View Users-->
+  <div class="tab-content" id="view-users" style="display: none;">
+    <h2>All Users</h2>
+    <button onclick="displayUsers()">Display Users</button>
+    <pre id="user-list"></pre>
+  </div>
+
+  <!--Modify Users-->
+  <div class="tab-content" id="modify-users" style="display: none;">
+    <h2>Modify Users</h2>
+    <input required type="text" name="modify-username" id="modify-username" placeholder="Enter Username" required>
+    <input required type="password" name="modify-password" id="modify-password" placeholder="Enter New Password"
+      required>
+    <p class="error-message" id="modify-error" style="display:none; color:red;">Username does not exist or is invalid!
+    </p>
+    <select id="modify-userType">
+      <option value="student">Student</option>
+      <option value="teacher">Teacher</option>
+      <option value="admin">Admin</option>
+    </select>
+    <button onclick="modifyUser()">Modify User</button>
+  </div>
+
+  <!--Manage Admins-->
+  <div class="tab-content" id="manage-admins" style="display: none;">
+    <h2>Manage Admins</h2>
+    <input required type="text" name="remove-username" id="remove-username" placeholder="Enter Username to Remove"
+      required>
+    <select id="remove-userType">
+      <option value="student">Student</option>
+      <option value="teacher">Teacher</option>
+      <option value="admin">Admin</option>
+    </select>
+    <button onclick="removeUser()">Remove User</button>
+  </div>
+
+</body>
+
+<!--
+<body>
+  <div class="container">
+    <h2>Admin Page</h2>
+    <div class="tabs">
+      <button class="tab-button active" onclick="showTab(event, 'create-student')">Create Student</button>
+      <button class="tab-button" onclick="showTab(event, 'create-teacher')">Create Teacher</button>
+      <button class="tab-button" onclick="showTab(event, 'remove-student')">Remove Student</button>
+      <button class="tab-button" onclick="showTab(event, 'remove-teacher')">Remove Teacher</button>
+    </div>
+
+    <div class="tab-content active" id="create-student" style="display: block;">
+      <form id="create-student-form">
+        <input required type="text" name="student-username" id="student-username-input" placeholder="Student Username"
+          required>
+        <input required type="password" name="student-password" id="student-password-input"
+          placeholder="Student Password" required>
+        <input required type="email" name="student-email" id="student-email-input" placeholder="Student Email" required>
+        <p class="error-message" id="student-error" style="display:none; color:red;">Username and/or password is already
+          taken!</p>
+        <button type="submit">Create Student</button>
+      </form>
+    </div>
+
+    <div class="tab-content" id="create-teacher" style="display: none;">
+      <form id="create-teacher-form">
+        <input required type="text" name="teacher-username" id="teacher-username-input" placeholder="Teacher Username"
+          required>
+        <input required type="password" name="teacher-password" id="teacher-password-input"
+          placeholder="Teacher Password" required>
+        <input required type="email" name="teacher-email" id="teacher-email-input" placeholder="Teacher Email" required>
+        <p class="error-message" id="teacher-error" style="display:none; color:red;">Username and/or password is already
+          taken!</p>
+        <button type="submit">Create Teacher</button>
+      </form>
+    </div>
+
+    <div class="tab-content" id="remove-student" style="display: none;">
+      <form id="remove-student-form">
+        <input required type="text" name="student-username" id="student-username-input" placeholder="Student Username"
+          required>
+        <input required type="password" name="student-password" id="student-password-input"
+          placeholder="Student Password" required>
+        <p class="error-message" id="remove-student-error" style="display:none; color:red;">Username and/or password is
+          incorrect!</p>
+        <button type="submit">Deactivate Student</button>
+      </form>
+    </div>
+
+    <div class="tab-content" id="remove-teacher" style="display: none;">
+      <form id="remove-teacher-form">
+        <input required type="text" name="teacher-username" id="teacher-username-input" placeholder="Teacher Username"
+          required>
+        <input required type="password" name="teacher-password" id="teacher-password-input"
+          placeholder="Teacher Password" required>
+        <p class="error-message" id="remove-teacher-error" style="display:none; color:red;">Username and/or password is
+          incorrect!</p>
+        <button type="submit">Deactivate Teacher</button>
+      </form>
+    </div>
+  </div>
+</body>
+-->
+
+</html>
