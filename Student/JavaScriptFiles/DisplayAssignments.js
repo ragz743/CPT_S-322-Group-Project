@@ -8,15 +8,19 @@ function renderAssignments(){
     
     annContainer.innerHTML = "<div>Announcements</div>";
 
-    assignments.forEach(function(announcement){
+    assignments.forEach(function(assignment){
         let divCreation = document.createElement("div");
         divCreation.className = "announcement-item";
-        divCreation.innerHTML = `<div>Name = ${assignments.Name}</div> Description <p>${assignments.Info}</p> Date Published=${announcement.PostedDate}  ID=${announcement.id} </p>`;
+        divCreation.innerHTML = `
+        <h1>Assignment Name : ${assignment.name}</h1>
+        <p>Assignment Details ${assignment.details}</p>
+        <p>Due Date: ${assignment.dueDate}</p>
+        <p>Points: ${assignment.points}</p>`
         annContainer.appendChild(divCreation);
     });
 } 
 document.addEventListener("DOMContentLoaded", function(){
 
-    renderAnnouncements()
+    renderAssignments()
 
-})
+}) 

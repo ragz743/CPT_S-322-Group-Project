@@ -11,7 +11,10 @@ function renderAnnouncements(){
     announcementJson.forEach(function(announcement){
         let divCreation = document.createElement("div");
         divCreation.className = "announcement-item";
-        divCreation.innerHTML = `<div>Name = ${announcement.Name}</div> Description <p>${announcement.Info}</p> Date Published=${announcement.PostedDate}  ID=${announcement.id} </p>`;
+        divCreation.innerHTML = `
+        <h1>Announcements Name : ${announcement.Name}</h1>
+        <h2>Announcements Details ${announcement.Info}</h2>
+        <h3>Announcements Date Created: ${announcement.PostedDate}</h3>`
         annContainer.appendChild(divCreation);
     });
 } 
