@@ -1,0 +1,64 @@
+<!--Got some help for header from https://www.w3schools.com/howto/howto_css_login_form.asp-->
+<!--Used ChatGPT for error message-->>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GradeTracker Login Page</title>
+  <link rel="stylesheet" href="Login.css">
+  <script type="text/javascript" src="Login.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Welcome to GradeTracker!</h2>
+    <div class="tabs">
+      <button class="tab-button active" onclick="showTab(event, 'student')">Student</button>
+      <button class="tab-button" onclick="showTab(event, 'teacher')">Teacher</button>
+      <button class="tab-button" onclick="showTab(event, 'admin')">Admin</button>
+    </div>
+
+    <!--Student Login Tab-->
+    <div class="tab-content active" id="student" style="display: block;">
+      <form id="student-form">
+        <input required type="text" name="student-username" id="student-username-input" placeholder="Student Username"
+          required>
+        <input required type="password" name="student-password" id="student-password-input"
+          placeholder="Student Password" required>
+        <p class="error-message" id="student-error" style="display:none; color:red;">Username and/or password is
+          incorrect!</p>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <!--Teacher Login Tab-->
+    <div class="tab-content" id="teacher" style="display: none;">
+      <form id="teacher-form">
+        <input required type="text" name="teacher-username" id="teacher-username-input" placeholder="Teacher Username"
+          required>
+        <input required type="password" name="teacher-password" id="teacher-password-input"
+          placeholder="Teacher Password" required>
+        <p class="error-message" id="teacher-error" style="display:none; color:red;">Username and/or password is
+          incorrect!</p>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <!--Admin Login Tab-->
+    <div class="tab-content" id="admin" style="display: none;">
+      <form id="admin-form">
+        <input required type="text" name="admin-username" id="admin-username-input" placeholder="Admin Username"
+          required>
+        <input required type="password" name="admin-password" id="admin-password-input" placeholder="Admin Password"
+          required>
+        <p class="error-message" id="admin-error" style="display:none; color:red;">Username and/or password is
+          incorrect!</p>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
