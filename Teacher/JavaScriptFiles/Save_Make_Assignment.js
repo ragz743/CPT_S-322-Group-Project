@@ -1,3 +1,6 @@
+//To do input validation for inputs given by the instructure as well as file uploads. 
+//maybe redo the input system to like a popup form from 
+
 //gets the local stroage if not creates one 
 let assignments = JSON.parse(localStorage.getItem('assignments')) || [];
 
