@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+   
+    <link rel="stylesheet" href="Grades.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Grades </title>
+</head>
+<body> 
+    <div class="grade-breakdown">
+        <h2>Grades</h2>
+
+        <table id="Grades_Table">
+            <thead> 
+                <tr>
+                    <th>Assignment Title </th>
+                    <th>Due Date</th>
+                    <th>Submission Status </th>
+                    <th>Grade</th>
+                    <th>Feedback</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div id="FeedbackPopup" class="popup">
+        <div class="popupContent">
+            <span id="FeedbackText"></span><br><br>
+            <button class="closePopup" onclick="closePopup()">Close</button>
+        </div>
+    </div> 
+
+    <script src="Grades.js"></script>
+
+</body>
+</html>
