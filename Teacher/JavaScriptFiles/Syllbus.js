@@ -14,9 +14,7 @@ function renderSyllbus(){
     if (syllbusData) {
         let divCreation = document.createElement("div");
         divCreation.className = "syllbus-item";
-        divCreation.innerHTML = `<h1>Syllabus Class Name: ${syllbusData.Name}</h1>
-                                 <h2>Syllabus Details: ${syllbusData.Info}</h2>
-                                 <h3>Syllabus Date Created: ${syllbusData.PostedDate}</h3>`;
+        divCreation.innerHTML = `<h1>Syllabus Class Name: ${syllbusData.Name}</h1> <h2>Syllabus Details: ${syllbusData.Info}</h2> <h3>Syllabus Date Created: ${syllbusData.PostedDate}</h3>`;
         syllbusContainer.appendChild(divCreation);
     }
 } 

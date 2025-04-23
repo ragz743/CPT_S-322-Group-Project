@@ -90,28 +90,23 @@ document.addEventListener("DOMContentLoaded", function(){
         const GetDate = new Date()
         const StringDate = GetDate.toLocaleDateString()
         let id = announcementJson.length + 1;
-        if(announcementName === null || announcementInfo === null){
+        if(announcementName === null || announcementInfo === null || announcementName.length < 1 || announcementInfo.length < 1){
             return;
+        }else{
+            const announcementData = {
+                id: id,
+                Name: announcementName,
+                Info: announcementInfo,
+                PostedDate: StringDate
+            };
+    
+            announcementJson.push(announcementData);
+            saveAnnouncements();
+            renderAnnouncements();
+            
         }
-
-        const announcementData = {
-            id: id,
-            Name: announcementName,
-            Info: announcementInfo,
-            PostedDate: StringDate
-        };
-
-        announcementJson.push(announcementData);
-        saveAnnouncements();
-
-
-        const divCreation = document.createElement("div");
-        divCreation.className = "announcement-item";
         
-        divCreation.innerHTML = `<h1>Announcements Name : ${announcementData.Name}</h1>
-        <h2>Announcements Details ${announcement.Info}</h2>
-        <h3>Announcements Date Created: ${announcement.PostedDate} & Id # ${announcement.id}</h3>`
-        annContainer.appendChild(divCreation);
+        
 
     });
 });
