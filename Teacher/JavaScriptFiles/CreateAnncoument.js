@@ -20,7 +20,7 @@ function renderAnnouncements(){
         divCreation.className = "announcement-item";1
         divCreation.innerHTML = `<h1>Announcements Name : ${announcement.Name}</h1>
         <h2>Announcements Details ${announcement.Info}</h2>
-        <h3>Announcements Date Created: ${announcement.PostedDate}</h3>`
+        <h3>Announcements Date Created: ${announcement.PostedDate} & Id # ${announcement.id}</h3>`
         annContainer.appendChild(divCreation);
     });
 } 
@@ -108,9 +108,9 @@ document.addEventListener("DOMContentLoaded", function(){
         const divCreation = document.createElement("div");
         divCreation.className = "announcement-item";
         
-        divCreation.innerHTML = `<h1>Announcements Name : ${announcement.Name}</h1>
+        divCreation.innerHTML = `<h1>Announcements Name : ${announcementData.Name}</h1>
         <h2>Announcements Details ${announcement.Info}</h2>
-        <h3>Announcements Date Created: ${announcement.PostedDate}</h3>`
+        <h3>Announcements Date Created: ${announcement.PostedDate} & Id # ${announcement.id}</h3>`
         annContainer.appendChild(divCreation);
 
     });
