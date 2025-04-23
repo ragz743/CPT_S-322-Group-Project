@@ -25,7 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
        //genrates the id for fueture access 
         let id = assignments.length + 1;
         
-        //creates the assignment object to use for future refrences 
+        if(assignmentName == null || assignmentName.length < 1 || assignmentDetails == null || assignmentDetails.length < 1 ||dueDate == null || dueDate.length < 1 || points == null || points.length <1){
+            return;
+        }else{
+            //creates the assignment object to use for future refrences 
         let assignment = {
             id: id,
             name: assignmentName,
@@ -37,10 +40,14 @@ document.addEventListener('DOMContentLoaded', function() {
         //pushes the assinment into the array and saves it to local storage
         assignments.push(assignment);
         saveAssignments();
+        }
+        
 
+        //this is needed due to havint templents 
         //if we do something to the assignments it reoloads it so it shows up
         if (typeof window.renderAssignments === 'function') {
             window.renderAssignments();
         }
     });
 });
+

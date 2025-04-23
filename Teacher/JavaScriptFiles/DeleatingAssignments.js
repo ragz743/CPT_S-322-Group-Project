@@ -17,11 +17,3 @@ if (deletebutton) {
 }
 
 
-
-
- //old code
-// let test = document.getElementById("DeleteButton")
-// test.addEventListener('click',function(){
-//     console.log("this worked")
-// })
-
