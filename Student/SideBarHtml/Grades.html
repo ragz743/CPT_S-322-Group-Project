@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../CssFiles/Student.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
-    <script src="../JavaScriptFiles/Sidebar.js" defer> </script>
+    <link rel="stylesheet" href="../CssFiles/Student.css">
+    <script src="../JavaScriptFiles/Sidebar.js" defer></script>
 </head>
 <body>
     <div class="SideBar">
-    <div class="Annoucments" id="Annoucments">Annoucments</div>
-    <div class="Syllbus" id="Syllbus">Syllbus</div>
-    <div class="Assignments" id="Assignments">Assignments</div>
-    <div class="Modules" id="Modules">Modules</div>
-    <div class="Grades" id="Grades">Grades</div>
-    <div class="Discussions" id = "Discussions">Discussions</div>
-    <div class="Files" id="Files">Files</div>
-    <div class="Messages" id="Messages">Messages</div>
+        <div class="Annoucments" id="Annoucments">Announcements</div>
+        <div class="Syllbus" id="Syllbus">Syllabus</div>
+        <div class="Assignments" id="Assignments">Assignments</div>
+        <div class="Modules" id="Modules">Modules</div>
+        <div class="Grades" id="Grades">Grades</div>
+        <div class="Discussions" id="Discussions">Discussions</div>
+        <div class="Files" id="Files">Files</div>
+        <div class="Messages" id="Messages">Messages</div>
     </div>
-    
 
-    
     <div class="GradesMain">
         <div>Grades</div>
+        <div class="grade-breakdown">
+            <h2>Grades</h2>
+            <table id="Grades_Table">
+                <thead>
+                    <tr>
+                        <th>Assignment Title</th>
+                        <th>Due Date</th>
+                        <th>Submission Status</th>
+                        <th>Grade</th>
+                        <th>Feedback</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Populate rows dynamically with JavaScript -->
+                </tbody>
+            </table>
+        </div>
     </div>
+
+    <div id="FeedbackPopup" class="popup">
+        <div class="popupContent">
+            <span id="FeedbackText"></span><br><br>
+            <button class="closePopup" onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script src="../JavaScriptFiles/DisplayGrades.js"></script>
 </body>
 </html>
